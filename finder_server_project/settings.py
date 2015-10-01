@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'finder_server_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django1',
+        'NAME': 'finder_server',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': '127.0.0.1',
