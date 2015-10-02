@@ -4,7 +4,10 @@ from .models import Users, Report, Img
 
 
 def user_authentication(username, password):
-    user = Users.objects.get(username=username, password=password)
+    try:
+        user = Users.objects.get(username=username, password=password)
+    except Users.DoesNotExist:
+        user = None
     return user
 
 

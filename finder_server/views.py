@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from .const import *
 from . import utils
+import json
 
 
 # Create your views here.
@@ -49,3 +50,16 @@ def main(request):
 def logout(request):
     request.session.clear()
     return HttpResponseRedirect(reverse('login'))
+
+
+def login_mobile(request):
+    username = request.GET.get('username')
+    password = request.GET.get('password')
+    data = {'auth': 'fail'}
+    user = utils.user_authentication(username, password)
+    if user is not None:
+        data = {'auth': 'pass'}
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+def upload_report_mobile(request):
+    username = request.GET.get('username')
