@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from local_db_config import LOCAL_HOST, LOCAL_PORT, LOCAL_NAME, LOCAL_PASSWORD, LOCAL_USER
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,11 +81,11 @@ WSGI_APPLICATION = 'finder_server_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'finder_server',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'HOST': '127.0.0.1',
-        'PORT': '3309',
+        'NAME': LOCAL_NAME,
+        'USER': LOCAL_USER,
+        'PASSWORD': LOCAL_PASSWORD,
+        'HOST': LOCAL_HOST,
+        'PORT': LOCAL_PORT,
     }
 }
 
