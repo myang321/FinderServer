@@ -4,4 +4,3 @@ finder_server/*.pyc
 finder_server/migrations/*.pyc
 .idea/
 finder_server_project/local_db_config.py
-finder_server_project/sae_db_config.py
