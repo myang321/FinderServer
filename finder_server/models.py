@@ -7,10 +7,12 @@ class Users(models.Model):
     uid = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
+    phone_status=models.IntegerField(help_text="1 means lost, 0 means not lost")
+
 
     @classmethod
     def create(cls, username, password):
-        user = cls(username=username, password=password)
+        user = cls(username=username, password=password,phone_status=0)
         return user
 
 

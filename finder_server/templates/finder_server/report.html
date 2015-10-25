@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form class="form" method="post" action="{% url 'close_lost_mode' %} " >
+    {% csrf_token %}
+    <input type="submit" value="close the lost mode,I find my phone">
+    </form>
+
+</body>
+</html>

@@ -43,6 +43,11 @@ def signup(request):
 def main(request):
     if not request.session.get(SESSION_NAME):
         return HttpResponseRedirect(reverse('login'))
+    username=request.session.get(SESSION_NAME)
+
+    if utils.check_phone_status(username)==1:
+        return HttpResponseRedirect(reverse('report'))
+
     context = {}
     return render(request, 'finder_server/main.html', context)
 
@@ -63,3 +68,19 @@ def login_mobile(request):
 
 def upload_report_mobile(request):
     username = request.GET.get('username')
+
+def report(request):
+    context = {}
+    return render(request, 'finder_server/report.html', context)
+
+def start_lost_mode(request):
+    username=request.session.get(SESSION_NAME)
+    phone_status = utils.check_phone_status(username)
+    utils.change_phone_status(username,1)
+    return HttpResponseRedirect(reverse('report'))
+
+def close_lost_mode(request):
+    username=request.session.get(SESSION_NAME)
+
+    utils.change_phone_status(username,0)
+    return HttpResponseRedirect(reverse('main'))

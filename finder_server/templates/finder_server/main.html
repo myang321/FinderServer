@@ -5,7 +5,12 @@
     <title></title>
 </head>
 <body>
-main
+
+<form class="form" method="post" action="{% url 'start_lost_mode' %} " >
+    {% csrf_token %}
+    <input type="submit" value="open the lost mode">
+    </form>
+
 <a href="{% url 'logout' %}">Logout</a>
 </body>
 </html>

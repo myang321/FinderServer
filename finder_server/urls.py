@@ -9,5 +9,8 @@ urlpatterns = [
     url(r'^main$', views.main, name='main'),
     url(r'^logout$', views.logout, name='logout'),
     url(r'^signup$', views.signup, name='signup'),
+    url(r'^report$', views.report, name='report'),
+    url(r'^start_lost_mode$', views.start_lost_mode, name='start_lost_mode'),
+    url(r'^close_lost_mode$', views.close_lost_mode, name='close_lost_mode'),
     url(r'^login_mobile$', views.login_mobile, name='login_mobile'),
 ]
