@@ -26,6 +26,13 @@ class Report(models.Model):
     ip_addr = models.CharField(max_length=50)
     wifi_name = models.CharField(max_length=50)
 
+    @classmethod
+    def create(cls, uid, timestamp,device_name,location_x,location_y,ip_addr,wifi_name):
+        report = cls(uid=uid,timestamp=timestamp,
+                         device_name=device_name,location_x=location_x,location_y=location_y,ip_addr=ip_addr,
+                         wifi_name=wifi_name)
+        return report
+
 
 class Img(models.Model):
     iid = models.AutoField(primary_key=True)

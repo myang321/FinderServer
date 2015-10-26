@@ -67,20 +67,34 @@ def login_mobile(request):
     return HttpResponse(json.dumps(data), content_type='application/json')
 
 def upload_report_mobile(request):
-    username = request.GET.get('username')
+    username=request.GET.get('username')
+    user=utils.get_user(username)
+
+    timestamp= request.GET.get('timestamp')
+    device_name=request.GET.get('device_name')
+    location_x=request.GET.get('location_x')
+    location_y=request.GET.get('location_y')
+    ip_addr=request.GET.get('ip_addr')
+    wifi_name=request.GET.get('wifi_name')
+    utils.add_report(user,timestamp,device_name,location_x,location_y,ip_addr,wifi_name)
+    data = {}
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+
 
 def report(request):
-    context = {}
+    username=request.session.get(SESSION_NAME)
+    reports=utils.get_all_report(username)
+    context = {'username':username,'reports':reports}
     return render(request, 'finder_server/report.html', context)
 
 def start_lost_mode(request):
     username=request.session.get(SESSION_NAME)
-    phone_status = utils.check_phone_status(username)
     utils.change_phone_status(username,1)
     return HttpResponseRedirect(reverse('report'))
 
 def close_lost_mode(request):
     username=request.session.get(SESSION_NAME)
-
     utils.change_phone_status(username,0)
     return HttpResponseRedirect(reverse('main'))

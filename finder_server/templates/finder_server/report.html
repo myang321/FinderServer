@@ -5,10 +5,34 @@
     <title></title>
 </head>
 <body>
-<form class="form" method="post" action="{% url 'close_lost_mode' %} " >
+<table cellspacing="0">
+    <tr>
+        <th>username</th>
+        <th>timestamp</th>
+        <th>device_name</th>
+        <th>location_x</th>
+        <th>location_y</th>
+        <th>ip_address</th>
+        <th>wifi_name</th>
+
+    </tr>
+    {% for t in reports %}
+
+        <td>{{ username }}</td>
+        <td>{{ t.timestamp }}</td>
+        <td>{{ t.device_name }}</td>
+        <td>{{ t.location_x }}</td>
+        <td>{{ t.location_y }}</td>
+        <td>{{ t.ip_addr }}</td>
+        <td>{{ t.wifi_name }}</td>
+    {% endfor %}
+
+
+
+</table>
+<form class="form" method="post" action="{% url 'close_lost_mode' %} ">
     {% csrf_token %}
     <input type="submit" value="close the lost mode,I find my phone">
-    </form>
-
+</form>
 </body>
 </html>

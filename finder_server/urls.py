@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^start_lost_mode$', views.start_lost_mode, name='start_lost_mode'),
     url(r'^close_lost_mode$', views.close_lost_mode, name='close_lost_mode'),
     url(r'^login_mobile$', views.login_mobile, name='login_mobile'),
+    url(r'^upload_report_mobile$', views.upload_report_mobile, name='upload_report_mobile'),
+
 ]
