@@ -19,7 +19,7 @@ class Users(models.Model):
 class Report(models.Model):
     rid = models.AutoField(primary_key=True)
     uid = models.ForeignKey(Users)
-    timestamp = models.BigIntegerField()
+    timestamp = models.CharField(max_length=100)
     device_name = models.CharField(max_length=100)
     location_x = models.FloatField()
     location_y = models.FloatField()
