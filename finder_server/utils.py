@@ -36,7 +36,7 @@ def get_user(username):
 
 def get_all_report(username):
     user=get_user(username)
-    reports=Report.objects.filter(uid=user.uid)
+    reports=Report.objects.filter(uid=user.uid).order_by('-rid')
     return reports
 
 
