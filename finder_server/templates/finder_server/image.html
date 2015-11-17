@@ -5,7 +5,10 @@
     <title></title>
 </head>
 <body>
-
+<form class="form" method="post" action="{% url 'report' %} ">
+    {% csrf_token %}
+    <input type="submit" value="go to see the report">
+</form>
 <table cellspacing="0">
     <tr>
         <th>username</th>
