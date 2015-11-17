@@ -86,7 +86,7 @@ def image_upload(request):
         user=utils.get_user(username)
         timestamp= request.POST.get('timestamp')
         device_name=request.POST.get('device_name')
-        image=request.POST.get('image')
+        image=request.FILES['image']
         utils.save_img(user,timestamp,device_name,image)
         data = {}
         return HttpResponse(json.dumps(data), content_type='application/json')
