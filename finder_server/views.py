@@ -118,3 +118,11 @@ def close_lost_mode(request):
     username=request.session.get(SESSION_NAME)
     utils.change_phone_status(username,0)
     return HttpResponseRedirect(reverse('main'))
+
+def check_mode(request):
+    username = request.GET.get('username')
+    data = {'mode': 'off'}
+    user_mode = utils.read_mode(username)
+    if user_mode==1:
+        data = {'mode': 'on'}
+    return HttpResponse(json.dumps(data), content_type='application/json')

@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^upload_report_mobile$', views.upload_report_mobile, name='upload_report_mobile'),
     url(r'^image$', views.image, name='image'),
     url(r'^image_upload$', views.image_upload, name='image_upload'),
+    url(r'^check_mode$', views.check_mode, name='check_mode'),
 
 ]

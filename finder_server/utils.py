@@ -14,7 +14,12 @@ def user_authentication(username, password):
     except Users.DoesNotExist:
         user = None
     return user
-
+def read_mode(username):
+    try:
+        user = Users.objects.get(username=username)
+    except Users.DoesNotExist:
+        user = None
+    return user.phone_status
 
 def add_user(username, password):
     user = Users.create(username=username, password=password)
