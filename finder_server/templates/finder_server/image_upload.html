@@ -5,14 +5,14 @@
     <title></title>
 </head>
 <body>
-<form class="form" method="post" action="{% url 'image_upload' %}">
+<form class="form" method="post" enctype="multipart/form-data" action="{% url 'image_upload' %}">
     {% csrf_token %}
     <input type="text" name="username" required placeholder="username"
            value="">
     <input type="text" name="timestamp" required placeholder="Timestamp"
            value="">
     <input type="text" name="device_name" required placeholder="device_name">
-    <input type="file" name="image" required placeholder="image">
+    <input type="file" name="image" required placeholder="image" >
 
     <button type="submit" id="login-button">upload</button>
     <br>
