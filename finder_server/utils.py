@@ -1,6 +1,11 @@
 __author__ = 'Steve'
 
 from .models import Users, Report, Img
+# For SAE
+import os
+
+if 'SERVER_SOFTWARE' in os.environ:
+    from sae.storage import Bucket
 
 
 def user_authentication(username, password):
@@ -38,6 +43,21 @@ def get_all_report(username):
     user=get_user(username)
     reports=Report.objects.filter(uid=user.uid).order_by('-rid')
     return reports
+def get_all_images(username):
+    user=get_user(username)
+    images=Img.objects.filter(uid=user.uid).order_by('-iid')
+    return images
+
+
+def save_img(uid,timestamp,device_name,file1):
+    filename = file1.filename.split('.')[-1]
+    url="www.baidu.com"
+    if 'SERVER_SOFTWARE' in os.environ:
+        bucket = Bucket('domain2')
+        bucket.put_object(filename, file1)
+        url = bucket.generate_url(filename)
+    image=Img.create(uid=uid,timestamp=timestamp,device_name=device_name,url=url)
+    image.save()
 
 
 

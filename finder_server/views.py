@@ -80,6 +80,26 @@ def upload_report_mobile(request):
     data = {}
     return HttpResponse(json.dumps(data), content_type='application/json')
 
+def image_upload(request):
+    if request=="POST":
+        username=request.POST.get('username')
+        user=utils.get_user(username)
+        timestamp= request.POST.get('timestamp')
+        device_name=request.POST.get('device_name')
+        image=request.POST.get('image')
+        utils.save_img(user,timestamp,device_name,image)
+        data = {}
+        return HttpResponse(json.dumps(data), content_type='application/json')
+    else:
+        context={}
+        # RETURN TEMPLATE
+        return render(request, 'finder_server/image_upload.html', context)
+
+def image(request):
+    username=request.session.get(SESSION_NAME)
+    images=utils.get_all_images(username)
+    context = {'username':username,'images':images}
+    return render(request, 'finder_server/image.html', context)
 
 
 

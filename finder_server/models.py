@@ -39,3 +39,11 @@ class Img(models.Model):
     timestamp = models.BigIntegerField()
     device_name = models.CharField(max_length=100)
     url = models.CharField(max_length=500)
+    uid = models.ForeignKey(Users)
+
+    @classmethod
+    def create(cls,uid,timestamp,device_name,url):
+        print "in create time stamp:",timestamp
+        image = cls(uid=uid,timestamp=timestamp,
+                         device_name=device_name,url=url)
+        return image
