@@ -81,7 +81,7 @@ def upload_report_mobile(request):
     return HttpResponse(json.dumps(data), content_type='application/json')
 
 def image_upload(request):
-    if request=="POST":
+    if request.method=="POST":
         username=request.POST.get('username')
         user=utils.get_user(username)
         timestamp= request.POST.get('timestamp')
