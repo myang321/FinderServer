@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel=stylesheet type=text/css href="/static/css/login.css">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
 login
-<form class="form" method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <input type="text" name="username" required placeholder="Username"
-           value="">
-    <input type="password" name="password" required placeholder="Password">
+<div class="wrapper">
 
-    <button type="submit" id="login-button">Login</button>
-    <br>
-</form>
-<a href="{% url 'signup' %}">
-    <button type="button" id="signup-button">SignUp</button>
-</a>
+        <div class="container">
+
+            <h1>Welcome</h1>
+
+            <form class="form" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+                
+                <input type="text" name="username" required placeholder="Username"
+                       value="">
+                <input type="password" name="password" required placeholder="Password">
+
+                <button type="submit" id="login-button">Login</button>
+                <a href="{% url 'signup' %}">
+                    <button type="button" id="signup-button">SignUp</button>
+                </a>
+            </form>
+            
+        </div>
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 </body>
 </html>

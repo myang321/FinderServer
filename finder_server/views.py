@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from .const import *
 from . import utils
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 
@@ -80,6 +81,7 @@ def upload_report_mobile(request):
     data = {}
     return HttpResponse(json.dumps(data), content_type='application/json')
 
+@csrf_exempt
 def image_upload(request):
     if request.method=="POST":
         username=request.POST.get('username')

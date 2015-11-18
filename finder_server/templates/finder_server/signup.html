@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel=stylesheet type=text/css href="/static/css/signup.css">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-signup
-<form id="signup_form" method="post" action="{% url 'signup' %} " }}>
-    {% csrf_token %}
-    <input type="text" required placeholder="username" name="username" id="username">
-    <input type="password" id="pass1" name="password" id="password" required placeholder="password">
-    <input type="submit" value="Signup">
-</form>
-<a href="{% url 'login' %}">
-    <button value="login">Login</button>
-</a>
+<p class="texto">Register</p>
+
+    <div class="Register">
+
+        <form class="form" id="signup_form" method="post" action="{% url 'signup' %} " >
+
+            <span class="fontawesome-user"></span><input type="text" required placeholder="username" name="username"
+                                                         id="username" autocomplete="off"
+                                                         value="">
+
+            <span class="fontawesome-lock"></span><input type="password" id="pass1" name="password" id="password"
+                                                         required
+                                                         placeholder="password" autocomplete="off">
+            <span class="fontawesome-lock"></span><input type="password" id="pass2" name="repeat password" required
+                                                         autocomplete="off"
+                                                         placeholder="confirm password">
+
+            <input type="submit" value="Signup">
+
+            <a href="{% url 'login' %}"><input class="cancel" type="button" value="Cancel"> </a>
+
+
+        </form>
+    </div>
 </body>
 </html>
