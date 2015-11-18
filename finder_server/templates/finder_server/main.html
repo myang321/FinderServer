@@ -3,17 +3,18 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
-    <link rel=stylesheet type=text/css href="{% static 'finder_server/css/signup.css' %}">
+    <link rel=stylesheet type=text/css href="{% static 'finder_server/css/main_style.css' %}">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-
+<div>
 <form class="form" method="post" action="{% url 'start_lost_mode' %} " >
     {% csrf_token %}
     <input type="submit" value="open the lost mode">
     </form>
 
 <a href="{% url 'logout' %}">Logout</a>
+    </div>
 </body>
 </html>

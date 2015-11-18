@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    {% load staticfiles %}
+    <link rel=stylesheet type=text/css href="{% static 'finder_server/css/report_style.css' %}">
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-<form class="form" method="post" action="{% url 'close_lost_mode' %} ">
+<form class="form1" method="post" action="{% url 'close_lost_mode' %} ">
     {% csrf_token %}
-    <input type="submit" value="close the lost mode,I find my phone">
+    <input type="submit" value="Close the lost mode,I find my phone">
 </form>
 <form class="form" method="post" action="{% url 'image' %} ">
     {% csrf_token %}
-    <input type="submit" value="go to see the image">
+    <input type="submit" value="Go to see the image">
 </form>
 <form class="form" method="post" action="{% url 'logout' %} ">
     {% csrf_token %}
