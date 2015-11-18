@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -10,14 +10,11 @@
 <body>
 login
 <div class="wrapper">
-
         <div class="container">
-
             <h1>Welcome</h1>
 
             <form class="form" method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-                
+                {% csrf_token %}
                 <input type="text" name="username" required placeholder="Username"
                        value="">
                 <input type="password" name="password" required placeholder="Password">
@@ -27,7 +24,6 @@ login
                     <button type="button" id="signup-button">SignUp</button>
                 </a>
             </form>
-            
         </div>
 
         <ul class="bg-bubbles">

@@ -55,7 +55,7 @@ def get_all_images(username):
 
 
 def save_img(uid,timestamp,device_name,file1):
-    filename = file1.name.split('.')[-1]
+    filename = file1.name
     url="www.baidu.com"
     if 'SERVER_SOFTWARE' in os.environ:
         bucket = Bucket('domain2')
