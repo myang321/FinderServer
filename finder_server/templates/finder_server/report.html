@@ -13,6 +13,10 @@
     {% csrf_token %}
     <input type="submit" value="go to see the image">
 </form>
+<form class="form" method="post" action="{% url 'logout' %} ">
+    {% csrf_token %}
+    <input type="submit" value="Log out">
+</form>
 
 <table cellspacing="0" border="1" style="width:100%">
 <caption>Information about your phone</caption>
