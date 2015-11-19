@@ -36,7 +36,7 @@ class Report(models.Model):
 
 class Img(models.Model):
     iid = models.AutoField(primary_key=True)
-    timestamp = models.CharField()
+    timestamp = models.CharField(max_length=500)
     device_name = models.CharField(max_length=100)
     url = models.CharField(max_length=500)
     uid = models.ForeignKey(Users)

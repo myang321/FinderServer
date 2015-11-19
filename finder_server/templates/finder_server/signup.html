@@ -12,6 +12,7 @@
     <div class="Register">
 
         <form class="form" id="signup_form" method="post" action="{% url 'signup' %} " >
+            {% csrf_token %}
 
             <span class="fontawesome-user"></span><input type="text" required placeholder="username" name="username"
                                                          id="username" autocomplete="off"
